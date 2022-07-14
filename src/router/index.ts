@@ -15,12 +15,19 @@ import {
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    name: 'home',
-    component: () => import('@/pages/front/Home.vue'),
-    meta: {
-      title: '首页',
-      keepAlive: true,
-    }
+    name: '/',
+    redirect: '/home',
+    children: [
+      {
+        path: '/home',
+        name: 'home',
+        component: () => import("@/pages/front/Layout.vue"),
+        meta: {
+          title: '首页',
+          keepAlive: true,
+        }
+      }
+    ]
   }
 ]
 
@@ -29,7 +36,8 @@ const options: RouterOptions = {
   history: createWebHashHistory(),
   routes,
 };
-
 // Router是路由对象类型
 const router: Router = createRouter(options);
+
+
 export default router;
