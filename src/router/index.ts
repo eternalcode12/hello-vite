@@ -17,15 +17,20 @@ const routes: RouteRecordRaw[] = [
     path: '/',
     name: '/',
     redirect: '/home',
+  },
+  {
+    path: '/',
+    name: 'Layout',
+    component: () => import("@/pages/front/Layout.vue"),
     children: [
       {
         path: '/home',
         name: 'home',
-        component: () => import("@/pages/front/Layout.vue"),
+        component: () => import("@/pages/front/Home.vue"),
         meta: {
           title: '首页',
           keepAlive: true,
-        }
+        },
       }
     ]
   }

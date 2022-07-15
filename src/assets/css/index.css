@@ -318,3 +318,8 @@ i {
 .clearfix::after {
   clear: both;
 }
+
+html,body {
+  height: 100%;
+  width: 100%;
+}
